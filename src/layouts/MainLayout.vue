@@ -25,7 +25,7 @@
       mini-to-overlay
       show-if-above
     >
-      <q-list inset-delimeter link no-border>
+      <q-list inset-delimeter link no-border class="bg-red-400">
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
