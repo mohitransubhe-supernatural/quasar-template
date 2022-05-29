@@ -16,6 +16,7 @@
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "@tailwindcss/typography": "^0.4.0",
+    "postcss-loader": "^4.0.3",
     "axios": "^0.21.1",
     "@quasar/extras": "^1.0.0",
     "postcss-remove-declaration": "^1.0.0",
