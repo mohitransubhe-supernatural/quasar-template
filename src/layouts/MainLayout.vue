@@ -1,6 +1,9 @@
 <template>
   <q-layout view="lHh lpR fFf">
-    <q-header :class="$q.dark.isActive ? 'header_dark' : ''">
+    <q-header
+      :class="$q.dark.isActive ? 'header_dark' : ''"
+      class="bg-white text-gray-400 q-py-md"
+    >
       <q-toolbar>
         <q-btn
           flat
@@ -12,19 +15,46 @@
           :class="miniState ? '' : 'q-ml-sm'"
           v-if="$q.platform.is.mobile"
         />
-        <q-toolbar-title class="q-ml-sm"> Quasar Template </q-toolbar-title>
+        <q-toolbar-title class="q-ml-sm">
+          <div>
+            <q-input
+              borderless
+              bg-color="gray-100"
+              debounce="300"
+              dense
+              v-model="search"
+              style="width: 50%; border-radius: 10px"
+            >
+              <template v-slot:append>
+                <q-icon name="search" />
+              </template>
+            </q-input>
+          </div>
+        </q-toolbar-title>
 
         <div>
           <q-btn
-            class="q-mr-xs"
+            class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
             flat
-            round
             @click="$q.dark.toggle()"
             :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
           />
         </div>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div class="q-mx-sm">
+          <q-btn
+            class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
+            flat
+            icon="notifications"
+          />
+        </div>
+
+        <div class="q-mr-xs">
+          <q-btn no-caps flat class="bg-gray-100 rounded-lg">
+            <q-icon color="gray-400" name="logout" />
+            <span class="text-gray-400">Log Out</span>
+          </q-btn>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -40,7 +70,7 @@
         :class="$q.dark.isActive ? 'drawer_dark' : 'drawer_dark'"
         class="h-full q-px-sm"
       >
-        <q-toolbar class="q-pa-md">
+        <q-toolbar class="q-px-md q-py-lg">
           <q-avatar>
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
@@ -55,7 +85,7 @@
             </q-item-section>
           </q-item> -->
           <q-item
-            active-class="bg-gray-600"
+            active-class="tab-active"
             to="/dashboard"
             exact
             class="navigation-item"
@@ -218,6 +248,7 @@ export default defineComponent({
     return {
       leftDrawerOpen: ref(false),
       miniState: ref(false),
+      search: ref(""),
     };
   },
 
@@ -235,7 +266,8 @@ export default defineComponent({
 } */
 
 .drawer_dark {
-  background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%);
+  /* background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%); */
+  background: #a32e4b;
   color: white;
 }
 
@@ -248,10 +280,12 @@ export default defineComponent({
 }
 
 .tab-active {
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* background: linear-gradient(to right, white, #a32e4b); */
+  /* background: rgba(255, 255, 255, 0.05); */
+  background: rgba(194, 163, 180, 0.986);
+  /* box-shadow: 0 8px 32px 0 rgba(184, 186, 204, 0.37); */
+  /* backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
