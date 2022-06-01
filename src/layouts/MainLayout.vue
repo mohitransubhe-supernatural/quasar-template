@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh lpR fFf">
     <q-header
-      :class="$q.dark.isActive ? 'header_dark' : ''"
-      class="bg-white text-gray-400 q-py-md"
+      :class="$q.dark.isActive ? 'header_dark' : 'header_normal'"
+      class="text-gray-400 q-pb-md q-pt-lg"
     >
       <q-toolbar>
         <q-btn
@@ -18,15 +18,14 @@
         <q-toolbar-title class="q-ml-sm">
           <div>
             <q-input
-              borderless
-              bg-color="gray-100"
-              debounce="300"
-              dense
               v-model="search"
+              class="custom-input bg-gray-100"
               style="width: 50%; border-radius: 10px"
+              borderless
+              dense
             >
               <template v-slot:append>
-                <q-icon name="search" />
+                <q-icon class="q-pr-sm" color="grey" name="search" />
               </template>
             </q-input>
           </div>
@@ -37,6 +36,7 @@
             class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
             flat
             @click="$q.dark.toggle()"
+            color="black"
             :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
           />
         </div>
@@ -45,14 +45,15 @@
           <q-btn
             class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
             flat
+            color="black"
             icon="notifications"
           />
         </div>
 
         <div class="q-mr-xs">
           <q-btn no-caps flat class="bg-gray-100 rounded-lg">
-            <q-icon color="gray-400" name="logout" />
-            <span class="text-gray-400">Log Out</span>
+            <q-icon size="xs" style="color: rgb(250, 108, 14)" name="logout" />
+            <span class="text-black q-ml-sm">Log Out</span>
           </q-btn>
         </div>
       </q-toolbar>
@@ -67,7 +68,7 @@
       show-if-above
     >
       <div
-        :class="$q.dark.isActive ? 'drawer_dark' : 'drawer_dark'"
+        :class="$q.dark.isActive ? 'drawer_dark' : 'drawer_normal'"
         class="h-full q-px-sm"
       >
         <q-toolbar class="q-px-md q-py-lg">
@@ -75,10 +76,10 @@
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
 
-          <q-toolbar-title>Mohit Ransubhe</q-toolbar-title>
+          <q-toolbar-title>Jitfin</q-toolbar-title>
         </q-toolbar>
         <hr />
-        <q-list class="q-mt-sm q-gutter-sm">
+        <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
           <!-- <q-item>
             <q-item-section>
               <q-item-label class="text-weight-bolder"> Menu </q-item-label>
@@ -261,18 +262,24 @@ export default defineComponent({
 </script>
 
 <style>
-/* .drawer_normal {
-  background-color: rgba(1, 1, 1, 0.75);
-} */
-
-.drawer_dark {
-  /* background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%); */
-  background: #a32e4b;
+.drawer_normal {
+  background: #2e3d57;
   color: white;
 }
 
+.drawer_dark {
+  background: linear-gradient(145deg, #2e3d57 15%, rgb(7, 18, 34) 70%);
+  /* background: #2e3d57; */
+  color: white;
+}
+
+.header_normal {
+  background: white;
+}
+
 .header_dark {
-  background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%);
+  background: linear-gradient(145deg, #2e3d57 15%, rgb(7, 18, 34) 70%);
+  /* background: black; */
 }
 
 .navigation-item {
@@ -282,11 +289,16 @@ export default defineComponent({
 .tab-active {
   /* background: linear-gradient(to right, white, #a32e4b); */
   /* background: rgba(255, 255, 255, 0.05); */
-  background: rgba(194, 163, 180, 0.986);
+  background: rgba(122, 146, 177, 0.986);
   /* box-shadow: 0 8px 32px 0 rgba(184, 186, 204, 0.37); */
   /* backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px); */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.custom-input input {
+  background-color: rgba(243, 244, 246);
+  border-radius: 10px;
 }
 </style>
