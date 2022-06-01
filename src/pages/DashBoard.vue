@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-md">
+  <q-page class="q-pa-md" :class="$q.dark.isActive ? '' : 'bg-grey-1'">
     <div class="row col-12">
       <div class="col-8">
         <div class="row">
@@ -96,9 +96,23 @@
             </q-card>
           </div>
         </div>
-        <div class="q-mt-md">
-          <q-card class="row float-right full-width card-item">
-            <ECharts :option="barChartOption" :resizable="true" />
+        <div>
+          <q-card class="row q-mt-md float-right full-width card-item">
+            <ECharts
+              class="q-pt-md"
+              :option="smoothedLineChartOptions"
+              :resizable="true"
+            />
+          </q-card>
+          <q-card
+            class="row q-mt-md float-right full-width card-item-2"
+            :class="$q.dark.isActive ? 'text-white' : ''"
+          >
+            <ECharts
+              class="q-pt-md"
+              :option="barChartOption"
+              :resizable="true"
+            />
           </q-card>
         </div>
       </div>
@@ -168,6 +182,35 @@
             />
           </div>
         </q-card>
+        <q-card
+          class="q-pa-md q-mt-md float-right full-width right-card-item-2 text-white"
+        >
+          <div class="row col-12 full-width items-center">
+            <div class="col-5">
+              <q-avatar size="80px">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+              </q-avatar>
+            </div>
+            <div class="col-7 text-xl text-bold">Universal Pay</div>
+          </div>
+          <div class="row col-12 q-mt-lg text-bold">Name : Jane Doe</div>
+          <div class="row col-12 q-mt-xs text-bold">
+            Card No : XXXX XXXX XXXX XXXX
+          </div>
+          <div class="row col-12 q-mt-xs text-bold">
+            <span class="col-6">Start : XX/XX</span>
+            <span class="col-6">End : XX/XX</span>
+          </div>
+        </q-card>
+        <q-card
+          class="q-pb-none q-mt-md float-right full-width right-card-item-3"
+        >
+          <ECharts
+            class="q-pt-md"
+            :option="pieChartOptions"
+            :resizable="true"
+          />
+        </q-card>
       </div>
     </div>
   </q-page>
@@ -213,6 +256,70 @@ export default defineComponent({
         // to a column of dataset.source by default.
         series: [{ type: "bar" }, { type: "bar" }, { type: "bar" }],
       }),
+      smoothedLineChartOptions: ref({
+        tooltip: {
+          trigger: "item",
+        },
+        title: {
+          left: "center",
+          text: "Total Sales",
+        },
+        xAxis: {
+          data: ["A", "B", "C", "D", "E", "F"],
+        },
+        yAxis: {},
+        series: [
+          {
+            data: [10, 50, 280, 130, 170, 455],
+            type: "line",
+            smooth: true,
+            color: ["#FA6C0E"],
+          },
+        ],
+      }),
+      pieChartOptions: ref({
+        tooltip: {
+          trigger: "item",
+        },
+        legend: {
+          top: "5%",
+          left: "center",
+        },
+        series: [
+          {
+            name: "Access From",
+            type: "pie",
+            radius: ["40%", "70%"],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: "#fff",
+              borderWidth: 2,
+            },
+            label: {
+              show: false,
+              position: "center",
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: "40",
+                fontWeight: "bold",
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              { value: 1048, name: "Search Engine" },
+              { value: 735, name: "Direct" },
+              { value: 580, name: "Email" },
+              { value: 484, name: "Union Ads" },
+              { value: 300, name: "Video Ads" },
+            ],
+          },
+        ],
+      }),
     };
   },
 });
@@ -224,6 +331,11 @@ export default defineComponent({
   border-radius: 5px;
 }
 
+.card-item-2 {
+  height: 25rem;
+  border-radius: 5px;
+}
+
 .right-card-item {
   height: 20rem;
   border-radius: 5px;
@@ -232,6 +344,17 @@ export default defineComponent({
     rgb(252, 189, 138) 10%,
     rgb(250, 108, 14)
   );
+}
+
+.right-card-item-2 {
+  height: 13rem;
+  border-radius: 5px;
+  background: linear-gradient(145deg, rgb(138, 149, 252) 10%, rgb(65, 66, 143));
+}
+
+.right-card-item-3 {
+  height: 25rem;
+  border-radius: 5px;
 }
 
 .total-sales-box {

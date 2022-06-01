@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh lpR fFf">
+  <q-layout view="LHh lpR fFf">
     <q-header
       :class="$q.dark.isActive ? 'header_dark' : 'header_normal'"
       class="text-gray-400 q-pb-md q-pt-lg"
@@ -62,7 +62,6 @@
     <q-drawer
       v-model="leftDrawerOpen"
       bordered
-      :breakpoint="500"
       :width="270"
       :mini="miniState"
       show-if-above
@@ -233,7 +232,7 @@
       </div>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container :class="$q.dark.isActive ? '' : 'bg-grey-1'">
       <router-view />
     </q-page-container>
   </q-layout>
