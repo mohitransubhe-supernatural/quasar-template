@@ -101,6 +101,34 @@
 
           <q-item
             active-class="tab-active"
+            to="/analytics"
+            class="navigation-item"
+            clickable
+            v-ripple
+          >
+            <q-item-section avatar>
+              <q-icon name="insights" />
+            </q-item-section>
+
+            <q-item-section v-if="!miniState"> Analytics </q-item-section>
+          </q-item>
+
+          <q-item
+            active-class="tab-active"
+            to="/statistics"
+            class="navigation-item"
+            clickable
+            v-ripple
+          >
+            <q-item-section avatar>
+              <q-icon name="analytics" />
+            </q-item-section>
+
+            <q-item-section v-if="!miniState"> Statistics </q-item-section>
+          </q-item>
+
+          <q-item
+            active-class="tab-active"
             to="/customer_management"
             class="navigation-item"
             clickable
@@ -173,22 +201,6 @@
 
           <q-item
             active-class="tab-active"
-            to="/employee_salary_list"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="list" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState">
-              Employee Salary List
-            </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
             to="/calendar"
             class="navigation-item"
             clickable
@@ -199,20 +211,6 @@
             </q-item-section>
 
             <q-item-section v-if="!miniState"> Calendar </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/department"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="business" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Department </q-item-section>
           </q-item>
 
           <q-item
