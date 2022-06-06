@@ -203,7 +203,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .custom-btn {
   border-radius: 5px;
   background: linear-gradient(145deg, rgb(255, 171, 103) 2%, rgb(250, 108, 14));
@@ -211,17 +211,17 @@ export default defineComponent({
 }
 
 .card-item {
-  height: 22.8rem;
+  height: 22.8rem !important;
   border-radius: 5px;
 }
 
 .card-item-2 {
-  height: 20rem;
+  height: 350px !important;
   border-radius: 5px;
 }
 
 .card-item-3 {
-  height: 20rem;
+  height: 350px !important;
   border-radius: 5px;
   background: linear-gradient(
     145deg,

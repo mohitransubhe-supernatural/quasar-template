@@ -1,7 +1,6 @@
 <template>
   <q-page class="q-pa-md">
-    <div class="row full-width text-h2 text-bold">Settings</div>
-    <div class="row full-width text-h6">Settings</div>
+    <div class="row full-width text-h3 text-bold">Profile</div>
     <div class="row col-12 q-mt-md">
       <div class="col-4 q-pr-md">
         <q-card class="q-pa-md card-item flex flex-center">
@@ -15,7 +14,7 @@
 
           <div class="row q-my-md full-width justify-center">
             <div class="text-h5 row justify-center full-width text-bold">
-              Jane Doe
+              Mohit Ransubhe
             </div>
             <div class="text-subtitle1 row justify-center full-width">
               Full Stack Developer
@@ -29,10 +28,10 @@
             <q-card-section>
               <q-form class="q-mb-xs">
                 <div class="row">
-                  <div>
+                  <div class="row col-12">
                     <label class="text-bold">First Name</label>
                     <q-input
-                      class="q-pr-sm q-mt-sm"
+                      class="q-mt-sm full-width"
                       :class="
                         $q.dark.isActive ? 'input-custom-dark' : 'input-custom'
                       "
@@ -40,10 +39,10 @@
                       v-model="user.first_name"
                     />
                   </div>
-                  <div>
-                    <label class="text-bold q-ml-sm">Last Name</label>
+                  <div class="row col-12 q-mt-md">
+                    <label class="text-bold">Last Name</label>
                     <q-input
-                      class="q-pl-sm q-mt-sm"
+                      class="q-mt-sm full-width"
                       :class="
                         $q.dark.isActive ? 'input-custom-dark' : 'input-custom'
                       "
@@ -53,10 +52,10 @@
                   </div>
                 </div>
                 <div class="row q-mt-md">
-                  <div>
+                  <div class="row col-12">
                     <label class="text-bold">Mobile No.</label>
                     <q-input
-                      class="q-pr-sm q-mt-sm"
+                      class="q-mt-sm full-width"
                       :class="
                         $q.dark.isActive ? 'input-custom-dark' : 'input-custom'
                       "
@@ -64,10 +63,10 @@
                       v-model="user.phone"
                     />
                   </div>
-                  <div>
-                    <label class="text-bold q-ml-sm">Email</label>
+                  <div class="row col-12 q-mt-md">
+                    <label class="text-bold">Email</label>
                     <q-input
-                      class="q-pl-sm q-mt-sm"
+                      class="q-mt-sm full-width"
                       :class="
                         $q.dark.isActive ? 'input-custom-dark' : 'input-custom'
                       "
@@ -77,30 +76,6 @@
                   </div>
                 </div>
                 <div class="row q-mt-md">
-                  <div>
-                    <label class="text-bold">City</label>
-                    <q-input
-                      class="q-pr-sm q-mt-sm"
-                      :class="
-                        $q.dark.isActive ? 'input-custom-dark' : 'input-custom'
-                      "
-                      borderless
-                      v-model="user.city"
-                    />
-                  </div>
-                  <div>
-                    <label class="text-bold q-ml-sm">Country</label>
-                    <q-input
-                      class="q-pl-sm q-mt-sm"
-                      :class="
-                        $q.dark.isActive ? 'input-custom-dark' : 'input-custom'
-                      "
-                      borderless
-                      v-model="user.country"
-                    />
-                  </div>
-                </div>
-                <div class="row q-mt-xl">
                   <q-btn
                     label="Update"
                     class="q-mt-md q-px-lg"
@@ -128,8 +103,8 @@ export default defineComponent({
   setup() {
     return {
       user: ref({
-        first_name: "Jane",
-        last_name: "Doe",
+        first_name: "Mohit",
+        last_name: "Ransubhe",
         email: "r*********@****.com",
         phone: "8*********8",
         city: "Pune",
@@ -142,21 +117,19 @@ export default defineComponent({
 
 <style>
 .card-item {
-  height: 27rem;
+  height: 500px !important;
   border-radius: 5px;
 }
 
 .input-custom input {
   background-color: rgba(243, 244, 246);
   padding: 10px;
-  width: 19rem;
   border-radius: 5px;
 }
 
 .input-custom-dark input {
   background-color: rgb(0, 0, 0);
   padding: 10px;
-  width: 19rem;
   border-radius: 5px;
 }
 
