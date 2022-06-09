@@ -19,6 +19,7 @@
           <div>
             <q-input
               v-model="search"
+              placeholder="Search"
               class="custom-input bg-gray-100"
               style="width: 50%; border-radius: 10px"
               borderless
@@ -75,7 +76,7 @@
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
 
-          <q-toolbar-title>Jitfin</q-toolbar-title>
+          <q-toolbar-title>Mohit Ransubhe</q-toolbar-title>
         </q-toolbar>
         <hr />
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">

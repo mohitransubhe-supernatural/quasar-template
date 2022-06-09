@@ -33,7 +33,12 @@
           <div class="text-h6 row full-width">Visitors</div>
           <div class="text-h6 row full-width">This Month</div>
           <div class="row full-width q-mt-md text-h2 text-bold">6,013</div>
-          <div class="row "></div>
+          <div class="row q-mt-md">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique
+            voluptates nulla eos maiores labore, cum quibusdam earum eligendi
+            beatae, repellendus corrupti nesciunt, quod fuga quaerat dolorum
+            doloremque numquam vel? Eius!
+          </div>
         </q-card>
       </div>
       <div class="col-9">
@@ -69,10 +74,10 @@ export default defineComponent({
         dataset: {
           dimensions: ["product", "2021", "2022"],
           source: [
-            { product: "Matcha Latte", 2021: 43.3, 2022: 85.8, 2017: 93.7 },
-            { product: "Milk Tea", 2021: 83.1, 2022: 73.4, 2017: 55.1 },
-            { product: "Cheese Cocoa", 2021: 86.4, 2022: 65.2, 2017: 82.5 },
-            { product: "Walnut Brownie", 2021: 72.4, 2022: 53.9, 2017: 39.1 },
+            { product: "Views", 2021: 43.3, 2022: 90.8, 2017: 93.7 },
+            { product: "Likes", 2021: 83.1, 2022: 90.4, 2017: 55.1 },
+            { product: "Shares", 2021: 76.4, 2022: 90.2, 2017: 82.5 },
+            { product: "Subscribers", 2021: 72.4, 2022: 85.9, 2017: 39.1 },
           ],
         },
         xAxis: {

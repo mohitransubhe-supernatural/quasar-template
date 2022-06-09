@@ -100,7 +100,7 @@
           <q-card class="row q-mt-md float-right full-width card-item">
             <ECharts
               class="q-pt-md"
-              :option="smoothedLineChartOptions"
+              :option="lineChartOptions"
               :resizable="true"
             />
           </q-card>
@@ -239,10 +239,10 @@ export default defineComponent({
         dataset: {
           dimensions: ["product", "2019", "2020", "2021"],
           source: [
-            { product: "Matcha Latte", 2019: 43.3, 2020: 85.8, 2021: 93.7 },
-            { product: "Milk Tea", 2019: 83.1, 2020: 73.4, 2021: 55.1 },
-            { product: "Cheese Cocoa", 2019: 86.4, 2020: 65.2, 2021: 82.5 },
-            { product: "Walnut Brownie", 2019: 72.4, 2020: 53.9, 2021: 39.1 },
+            { product: "Views", 2019: 43.3, 2020: 85.8, 2021: 93.7 },
+            { product: "Likes", 2019: 83.1, 2020: 73.4, 2021: 55.1 },
+            { product: "Shares", 2019: 86.4, 2020: 65.2, 2021: 82.5 },
+            { product: "Subscribers", 2019: 72.4, 2020: 53.9, 2021: 39.1 },
           ],
         },
         xAxis: {
@@ -256,7 +256,7 @@ export default defineComponent({
         // to a column of dataset.source by default.
         series: [{ type: "bar" }, { type: "bar" }, { type: "bar" }],
       }),
-      smoothedLineChartOptions: ref({
+      lineChartOptions: ref({
         tooltip: {
           trigger: "item",
         },
@@ -272,7 +272,6 @@ export default defineComponent({
           {
             data: [10, 50, 280, 130, 170, 455],
             type: "line",
-            smooth: true,
             color: ["#FA6C0E"],
           },
         ],
