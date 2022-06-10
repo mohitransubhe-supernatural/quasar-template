@@ -14,10 +14,11 @@
         <template v-slot:top-right="props">
           <q-btn
             @click="new_customer = true"
-            outline
+            flat
+            size="lg"
             color="primary"
-            label="Add New"
-            class="q-mr-xs"
+            icon="add_circle"
+            class="q-mr-xs q-pa-none"
           />
 
           <q-input
@@ -37,6 +38,7 @@
             flat
             round
             dense
+            class="q-ml-xs"
             :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
             @click="props.toggleFullscreen"
             v-if="mode === 'list'"
@@ -64,13 +66,13 @@
             </q-tooltip>
           </q-btn>
 
-          <q-btn
+          <!-- <q-btn
             color="primary"
             icon-right="archive"
             label="Export to csv"
             no-caps
             @click="exportTable"
-          />
+          /> -->
         </template>
       </q-table>
     </q-card>
@@ -133,7 +135,7 @@
                   <q-input
                     dense
                     outlined
-                    v-model="customer.last_call"
+                    v-model="customer.joiningDate"
                     mask="date"
                     label="Last Call"
                   >
@@ -145,7 +147,7 @@
                           transition-hide="scale"
                         >
                           <q-date
-                            v-model="customer.last_call"
+                            v-model="customer.joiningDate"
                             @input="() => $refs.lastCallProxy.hide()"
                           />
                         </q-popup-proxy>
@@ -211,91 +213,91 @@ export default defineComponent({
           sortable: true,
         },
         {
-          name: "last_call",
+          name: "joiningDate",
           align: "left",
           label: "Last Call",
-          field: "last_call",
+          field: "joiningDate",
           sortable: true,
         },
       ]),
       data: ref([
         {
-          name: "Dr. Jada Conolly",
-          city: "GILBERT",
+          name: "John Doe",
+          city: "Houston",
+          state: "Texas",
+          joiningDate: "12-09-2019",
+        },
+        {
+          name: "John Wick",
+          city: "Austin",
+          state: "Texas",
+          joiningDate: "09-02-2019",
+        },
+        {
+          name: "John Carter",
+          city: "Dallas",
+          state: "Texas",
+          joiningDate: "03-25-2019",
+        },
+        {
+          name: "Chandler Binge",
+          city: "San Antonio",
+          state: "Texas",
+          joiningDate: "03-18-2019",
+        },
+        {
+          name: "Jordan Mathew",
+          city: "Texas City",
+          state: "Texas",
+          joiningDate: "04-09-2019",
+        },
+        {
+          name: "Tom Belfort",
+          city: "El Paso",
           state: "AZ",
-          last_call: "12-09-2019",
+          joiningDate: "09-03-2019",
         },
         {
-          name: "Dr. Kiley Ibbotson",
-          city: "LA MESA",
-          state: "CA",
-          last_call: "09-02-2019",
+          name: "Sam Carter",
+          city: "Fort Worth",
+          state: "Texas",
+          joiningDate: "01-12-2019",
         },
         {
-          name: "Dr. Leslie Tecklenburg",
-          city: "SAN DIEGO",
-          state: "CA",
-          last_call: "03-25-2019",
+          name: "Tony Stark",
+          city: "Arlington",
+          state: "Texas",
+          joiningDate: "04-15-2019",
         },
         {
-          name: "Dr. Lia Whitledge",
-          city: "PHOENIX",
-          state: "AZ",
-          last_call: "03-18-2019",
+          name: "Miguel Stark",
+          city: "Lubbock",
+          state: "Texas",
+          joiningDate: "11-09-2019",
         },
         {
-          name: "Dr. Sam Wileman",
-          city: "MESA",
-          state: "AZ",
-          last_call: "04-09-2019",
+          name: "Reese Vandygriff",
+          city: "Waco",
+          state: "Texas",
+          joiningDate: "01-01-2019",
         },
         {
-          name: "Dr. Edgar Colmer",
-          city: "PHOENIX",
-          state: "AZ",
-          last_call: "09-03-2019",
+          name: "Griffin Troglen",
+          city: "Plano",
+          state: "Texas",
+          joiningDate: "04-12-2019",
         },
         {
-          name: "Dr. Kaiden Rozelle",
-          city: "LAKEWOOD",
-          state: "CA",
-          last_call: "01-12-2019",
+          name: "Zachary Wehrley",
+          city: "Killen",
+          state: "Texas",
+          joiningDate: "10-09-2019",
         },
         {
-          name: "Dr. Leslie Stopher",
-          city: "YUMA",
-          state: "AZ",
-          last_call: "04-15-2019",
-        },
-        {
-          name: "Dr. Miguel Subasic",
-          city: "TEMPE",
-          state: "AZ",
-          last_call: "11-09-2019",
-        },
-        {
-          name: "Dr. Reese Vandygriff",
-          city: "LAKEWOOD",
-          state: "CA",
-          last_call: "01-01-2019",
-        },
-        {
-          name: "Dr. Griffin Troglen",
-          city: "YUMA",
-          state: "AZ",
-          last_call: "04-12-2019",
-        },
-        {
-          name: "Dr. Zachary Wehrley",
-          city: "TEMPE",
-          state: "AZ",
-          last_call: "10-09-2019",
-        },
-        {
-          name: "Dr. Kyle Wahlert",
-          city: "LAKEWOOD",
-          state: "CA",
-          last_call: "01-02-2019",
+          name: "Kyle Wahlert",
+          city: "Katy",
+          state: "Texas",
+          joiningDate: "01-02-2019",
         },
       ]),
       pagination: ref({

@@ -2,7 +2,7 @@
   <q-layout view="LHh lpR fFf">
     <q-header
       :class="$q.dark.isActive ? 'header_dark' : 'header_normal'"
-      class="text-gray-400 q-pb-md q-pt-lg"
+      class="text-grey-2 q-pb-md q-pt-lg"
     >
       <q-toolbar>
         <q-btn
@@ -20,13 +20,13 @@
             <q-input
               v-model="search"
               placeholder="Search"
-              class="custom-input bg-gray-100"
+              class="custom-border bg-grey-3 q-pl-sm"
               style="width: 50%; border-radius: 10px"
               borderless
               dense
             >
               <template v-slot:append>
-                <q-icon class="q-pr-sm" color="grey" name="search" />
+                <q-icon class="q-pr-sm" color="grey-8" name="search" />
               </template>
             </q-input>
           </div>
@@ -34,7 +34,7 @@
 
         <div>
           <q-btn
-            class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
+            class="q-mr-xs bg-grey-3 q-py-xs q-px-sm custom-border"
             flat
             @click="$q.dark.toggle()"
             color="black"
@@ -44,7 +44,7 @@
 
         <div class="q-mx-sm">
           <q-btn
-            class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
+            class="q-mr-xs bg-grey-3 q-py-xs q-px-sm custom-border"
             flat
             color="black"
             icon="notifications"
@@ -52,7 +52,7 @@
         </div>
 
         <div class="q-mr-xs">
-          <q-btn no-caps flat class="bg-gray-100 rounded-lg">
+          <q-btn no-caps flat class="bg-grey-3 custom-border">
             <q-icon size="xs" style="color: rgb(250, 108, 14)" name="logout" />
             <span class="text-black q-ml-sm">Log Out</span>
           </q-btn>
@@ -295,8 +295,7 @@ export default defineComponent({
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.custom-input input {
-  background-color: rgba(243, 244, 246);
+.custom-border {
   border-radius: 10px;
 }
 </style>
