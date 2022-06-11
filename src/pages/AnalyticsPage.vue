@@ -1,16 +1,16 @@
 <template>
   <q-page class="q-pa-md">
     <div class="row col-12 items-center">
-      <div class="col-8">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div class="text-h3 text-bold">Analytics</div>
         <q-separator
           style="width: 12rem; height: 5px; background-color: #2e3d57"
         />
         <div class="text-grey-8">Let's make some powerfull insights</div>
       </div>
-      <div class="col-4 row">
-        <div class="q-ml-md">
-          <q-btn label="Create" class="custom-btn q-px-xl shadow-lg"></q-btn>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 row q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
+        <div class="q-ml-lg-md q-ml-md-md">
+          <q-btn label="Create" class="custom-btn q-px-xl q-mr-lg-none q-mr-md-none q-mr-sm-md q-mr-xs-md q shadow-lg"></q-btn>
           <q-btn
             label="Manage"
             class="custom-btn q-ml-sm q-px-xl shadow-lg"
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="row col-12 q-mt-md">
-      <div class="col-8">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <q-card class="row full-width card-item">
           <ECharts
             class="q-pt-md"
@@ -28,7 +28,7 @@
           />
         </q-card>
       </div>
-      <div class="col-4 q-pl-md row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-pl-lg-md q-pl-md-md q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md row">
         <q-card class="q-pa-md row full-width justify-center">
           <q-circular-progress
             :value="value"
@@ -45,8 +45,8 @@
       </div>
     </div>
     <div class="row col-12 q-mt-md">
-      <div class="row col-8">
-        <div class="col-4 q-pr-lg">
+      <div class="row col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-pr-lg-lg q-pr-md-lg">
           <q-card class="q-pa-md card-item-2">
             <div class="row full-width text-lg q-pt-lg">Views</div>
             <div
@@ -61,8 +61,8 @@
             </div>
           </q-card>
         </div>
-        <div class="col-4">
-          <q-card class="q-pa-md card-item-3 shadow-2xl">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
+          <q-card class="q-pa-md card-item-3 shadow-4">
             <div class="row full-width text-lg">Active</div>
             <div class="row full-width text-lg">Subscribers</div>
             <div
@@ -77,7 +77,7 @@
             </div>
           </q-card>
         </div>
-        <div class="col-4 q-pl-lg">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-pl-lg-lg q-pl-md-lg q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
           <q-card class="q-pa-md card-item-2">
             <div class="row full-width text-lg q-pt-lg">Subscribers</div>
             <div
@@ -93,7 +93,7 @@
           </q-card>
         </div>
       </div>
-      <div class="col-4 q-pl-md row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-pl-lg-md q-pl-md-md row q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
         <q-card class="row full-width card-item-2">
           <ECharts class="q-pt-md" :option="barChartOption" :resizable="true" />
         </q-card>

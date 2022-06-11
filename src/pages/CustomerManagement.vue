@@ -26,7 +26,7 @@
             borderless
             v-model="filter"
             placeholder="Search"
-            class="custom-input bg-gray-100"
+            class="custom-border bg-grey-3 q-pl-sm"
             style="border-radius: 10px"
           >
             <template v-slot:append>
@@ -74,12 +74,36 @@
             @click="exportTable"
           /> -->
         </template>
+
+        <template v-slot:body-cell-level="props">
+          <q-td :props="props">
+            <q-chip
+              :color="(props.row.level == 'Senior') ? 'green' : (props.row.level == 'Junior' ? 'orange' : 'secondary')"
+              text-color="white"
+              dense
+              class="q-px-md"
+              square
+              style="width: 85px"
+            >{{props.row.level}}
+            </q-chip>
+          </q-td>
+        </template>
+
+        <template v-slot:body-cell-action="props">
+          <q-td :props="props">
+            <div class="q-gutter-sm">
+              <q-btn dense outline size="sm" color="primary" icon="edit"/>
+              <q-btn dense outline size="sm" color="primary" icon="visibility"/>
+              <q-btn dense outline size="sm" color="red" icon="delete"/>
+            </div>
+          </q-td>
+        </template>
       </q-table>
     </q-card>
     <q-dialog v-model="new_customer">
-      <q-card style="width: 600px; max-width: 60vw">
+      <q-card style="width: 500px; max-width: 50vw">
         <q-card-section>
-          <div class="text-h6">
+          <div class="text-h6 q-px-md">
             Add new customer
             <q-btn
               round
@@ -92,8 +116,8 @@
             ></q-btn>
           </div>
         </q-card-section>
-        <q-separator inset></q-separator>
-        <q-card-section class="q-pt-none">
+        <q-separator class="q-px-md" inset></q-separator>
+        <q-card-section class="q-pt-md">
           <q-form class="q-gutter-md">
             <q-list>
               <q-item>
@@ -131,13 +155,13 @@
               </q-item>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">Last Call</q-item-label>
+                  <q-item-label class="q-pb-xs">Joining Date</q-item-label>
                   <q-input
                     dense
                     outlined
                     v-model="customer.joiningDate"
                     mask="date"
-                    label="Last Call"
+                    label="Joining Date"
                   >
                     <template v-slot:append>
                       <q-icon name="event" class="cursor-pointer">
@@ -156,12 +180,36 @@
                   </q-input>
                 </q-item-section>
               </q-item>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="q-pb-xs">Band</q-item-label>
+                  <q-input
+                    dense
+                    outlined
+                    v-model="customer.band"
+                    label="Band"
+                  />
+                </q-item-section>
+              </q-item>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="q-pb-xs">Level</q-item-label>
+                  <q-input
+                    dense
+                    outlined
+                    v-model="customer.level"
+                    label="Level"
+                  />
+                </q-item-section>
+              </q-item>
             </q-list>
           </q-form>
+          <div class="q-px-md q-pt-sm">
+          <q-btn class="full-width" label="Save" type="submit" color="primary" v-close-popup />
+          </div>
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Save" type="submit" color="primary" v-close-popup />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -215,89 +263,136 @@ export default defineComponent({
         {
           name: "joiningDate",
           align: "left",
-          label: "Last Call",
+          label: "Joining Date",
           field: "joiningDate",
           sortable: true,
         },
+        {
+          name: "band",
+          align: "left",
+          label: "Band",
+          field: "band",
+          sortable: true,
+        },
+        {
+          name: "level",
+          align: "left",
+          label: "Level",
+          field: "level",
+          sortable: true,
+        },
+        {
+          name: "action",
+          align: "left",
+          label: "Action",
+          field: "action",
+          sortable: true
+        }
       ]),
       data: ref([
         {
-          name: "John Doe",
+          name: "Chandler Binge",
           city: "Houston",
           state: "Texas",
           joiningDate: "12-09-2019",
+          band: "A1",
+          level: "Manager"
         },
         {
           name: "John Wick",
           city: "Austin",
           state: "Texas",
           joiningDate: "09-02-2019",
+          band: "A1",
+          level: "Senior"
         },
         {
-          name: "John Carter",
+          name: "John Doe",
           city: "Dallas",
           state: "Texas",
           joiningDate: "03-25-2019",
+          band: "A2",
+          level: "Senior"
         },
         {
-          name: "Chandler Binge",
+          name: "John Carter",
           city: "San Antonio",
           state: "Texas",
           joiningDate: "03-18-2019",
+          band: "A3",
+          level: "Senior"
         },
         {
           name: "Jordan Mathew",
           city: "Texas City",
           state: "Texas",
           joiningDate: "04-09-2019",
+          band: "A4",
+          level: "Senior"
         },
         {
           name: "Tom Belfort",
           city: "El Paso",
-          state: "AZ",
+          state: "Texas",
           joiningDate: "09-03-2019",
+          band: "B1",
+          level: "Junior"
         },
         {
           name: "Sam Carter",
           city: "Fort Worth",
           state: "Texas",
           joiningDate: "01-12-2019",
+          band: "B2",
+          level: "Junior"
         },
         {
           name: "Tony Stark",
           city: "Arlington",
           state: "Texas",
           joiningDate: "04-15-2019",
+          band: "B3",
+          level: "Junior"
         },
         {
           name: "Miguel Stark",
           city: "Lubbock",
           state: "Texas",
           joiningDate: "11-09-2019",
+          band: "B4",
+          level: "Junior"
         },
         {
           name: "Reese Vandygriff",
           city: "Waco",
           state: "Texas",
           joiningDate: "01-01-2019",
+          band: "C1",
+          level: "Intern"
         },
         {
           name: "Griffin Troglen",
           city: "Plano",
           state: "Texas",
           joiningDate: "04-12-2019",
+          band: "C2",
+          level: "Intern"
         },
         {
           name: "Zachary Wehrley",
           city: "Killen",
           state: "Texas",
           joiningDate: "10-09-2019",
+          band: "C3",
+          level: "Intern"
         },
         {
           name: "Kyle Wahlert",
           city: "Katy",
           state: "Texas",
           joiningDate: "01-02-2019",
+          band: "C4",
+          level: "Intern"
         },
       ]),
       pagination: ref({
@@ -338,8 +433,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.custom-input input {
-  background-color: rgba(243, 244, 246);
-  border-radius: 10px;
+.custom-border {
+  border-radius: 5px;
 }
 </style>

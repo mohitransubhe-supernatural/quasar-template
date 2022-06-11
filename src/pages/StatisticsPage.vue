@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pa-md">
     <div class="row col-12">
-      <div class="col-3 q-pr-md row">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 q-pr-lg-md q-pr-md-md row">
         <q-card class="q-pa-md row full-width justify-center card-item">
           <q-circular-progress
             :value="value"
@@ -17,7 +17,7 @@
           <div class="text-subtitle1 text-bold">Overall Visitors</div>
         </q-card>
       </div>
-      <div class="col-9">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
         <q-card class="row full-width card-item">
           <ECharts
             class="q-pt-md"
@@ -27,8 +27,8 @@
         </q-card>
       </div>
     </div>
-    <div class="row col-12 q-mt-md">
-      <div class="col-3 q-pr-md row">
+    <div class="row col-12">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 q-pr-lg-md q-pr-md-md q-mt-lg-none q-mt-md-none q-mt-sm-md q-pt-xs-md row">
         <q-card class="q-pa-md full-width card-item-2">
           <div class="text-h6 row full-width">Visitors</div>
           <div class="text-h6 row full-width">This Month</div>
@@ -41,7 +41,7 @@
           </div>
         </q-card>
       </div>
-      <div class="col-9">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 q-mt-lg-none q-mt-md-none q-mt-sm-md q-pt-xs-md">
         <q-card class="row full-width card-item">
           <ECharts class="q-pt-md" :option="barChartOption" :resizable="true" />
         </q-card>
