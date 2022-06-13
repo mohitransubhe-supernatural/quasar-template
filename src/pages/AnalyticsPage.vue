@@ -23,7 +23,7 @@
         <q-card class="row full-width card-item">
           <ECharts
             class="q-pt-md"
-            :option="smoothedLineChartOptions"
+            :option="getSmoothedLineChartOptions()"
             :resizable="true"
           />
         </q-card>
@@ -95,7 +95,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-pl-lg-md q-pl-md-md row q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
         <q-card class="row full-width card-item-2">
-          <ECharts class="q-pt-md" :option="barChartOption" :resizable="true" />
+          <ECharts class="q-pt-md" :option="getBarChartOptions()" :resizable="true" />
         </q-card>
       </div>
     </div>
@@ -117,12 +117,15 @@ export default defineComponent({
   setup() {
     return {
       value: ref(0),
-      barChartOption: ref({
+    };
+  },
+
+  methods: {
+    getBarChartOptions() {
+      return {
         grid: {
           bottom: "25%",
         },
-        legend: {},
-        tooltip: {},
         dataset: {
           dimensions: ["product", "2022", "2016", "2017"],
           source: [
@@ -136,9 +139,14 @@ export default defineComponent({
           type: "category",
           axisLabel: {
             rotate: 45,
+            color: this.$q.dark.isActive ? "white" : "black",
           },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         // Declare several bar series, each will be mapped
         // to a column of dataset.source by default.
         series: [
@@ -147,19 +155,31 @@ export default defineComponent({
             color: ["#2e3d57"],
           },
         ],
-      }),
-      smoothedLineChartOptions: ref({
+      }
+    },
+    getSmoothedLineChartOptions() {
+      return {
         tooltip: {
           trigger: "item",
         },
         title: {
           left: "center",
           text: "Visitors this month",
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
         xAxis: {
           data: ["A", "B", "C", "D", "E", "F"],
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         series: [
           {
             data: [10, 50, 280, 130, 170, 455],
@@ -184,8 +204,8 @@ export default defineComponent({
             smooth: true,
           },
         ],
-      }),
-    };
+      }
+    }
   },
 
   beforeUnmount() {

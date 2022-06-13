@@ -13,7 +13,7 @@
       >
         <template v-slot:top-right="props">
           <q-btn
-            @click="new_customer = true"
+            @click="addCustomer()"
             flat
             size="lg"
             color="primary"
@@ -30,7 +30,7 @@
             style="border-radius: 10px"
           >
             <template v-slot:append>
-              <q-icon class="q-pr-sm" color="grey" name="search" />
+              <q-icon class="q-pr-sm" color="grey-8" name="search" />
             </template>
           </q-input>
 
@@ -50,21 +50,17 @@
             </q-tooltip>
           </q-btn>
 
-          <q-btn
-            flat
-            round
-            dense
-            :icon="mode === 'grid' ? 'list' : 'grid_on'"
+          <q-toggle
+            v-model="viewToggle"
             @click="
               mode = mode === 'grid' ? 'list' : 'grid';
-              separator = mode === 'grid' ? 'none' : 'horizontal';
-            "
+              separator = mode === 'grid' ? 'none' : 'horizontal';"
             v-if="!props.inFullscreen"
           >
             <q-tooltip :disable="$q.platform.is.mobile" v-close-popup
-              >{{ mode === "grid" ? "List" : "Grid" }}
+              >{{ mode === "grid" ? "List View" : "Grid View" }}
             </q-tooltip>
-          </q-btn>
+          </q-toggle>
 
           <!-- <q-btn
             color="primary"
@@ -92,15 +88,15 @@
         <template v-slot:body-cell-action="props">
           <q-td :props="props">
             <div class="q-gutter-sm">
-              <q-btn dense outline size="sm" color="primary" icon="edit"/>
-              <q-btn dense outline size="sm" color="primary" icon="visibility"/>
-              <q-btn dense outline size="sm" color="red" icon="delete"/>
+              <q-btn dense outline size="sm" color="primary" icon="edit" @click="editRow(props.row)" />
+              <q-btn dense outline size="sm" color="primary" icon="visibility" @click="openModal(props.row)" />
+              <q-btn dense outline size="sm" color="red" icon="delete" />
             </div>
           </q-td>
         </template>
       </q-table>
     </q-card>
-    <q-dialog v-model="new_customer">
+    <q-dialog v-model="newCustomer">
       <q-card style="width: 500px; max-width: 50vw">
         <q-card-section>
           <div class="text-h6 q-px-md">
@@ -127,7 +123,6 @@
                     dense
                     outlined
                     v-model="customer.name"
-                    label="Customer Name"
                   />
                 </q-item-section>
               </q-item>
@@ -138,7 +133,6 @@
                     dense
                     outlined
                     v-model="customer.city"
-                    label="City"
                   />
                 </q-item-section>
               </q-item>
@@ -149,7 +143,6 @@
                     dense
                     outlined
                     v-model="customer.state"
-                    label="State"
                   />
                 </q-item-section>
               </q-item>
@@ -161,7 +154,6 @@
                     outlined
                     v-model="customer.joiningDate"
                     mask="date"
-                    label="Joining Date"
                   >
                     <template v-slot:append>
                       <q-icon name="event" class="cursor-pointer">
@@ -187,7 +179,6 @@
                     dense
                     outlined
                     v-model="customer.band"
-                    label="Band"
                   />
                 </q-item-section>
               </q-item>
@@ -198,7 +189,6 @@
                     dense
                     outlined
                     v-model="customer.level"
-                    label="Level"
                   />
                 </q-item-section>
               </q-item>
@@ -211,6 +201,40 @@
 
         <q-card-actions align="right" class="text-teal">
         </q-card-actions>
+      </q-card>
+    </q-dialog>
+    <q-dialog v-model="viewCustomer">
+      <q-card class="q-pa-md" style="width: 600px; max-width: 60vw">
+        <div class="row full-width">
+          <div class="full-height self-center q-mr-md">
+            <q-avatar size="150px">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            </q-avatar>
+          </div>
+
+        <q-separator vertical />
+
+        <div class="q-ml-md q-gutter-md">
+          <div class="row">
+            <span class="text-weight-bold">Customer Name:</span> <span class="text-grey-8 q-ml-sm"> {{selectedCustomer.name}}</span>
+          </div>
+          <div class="row">
+            <span class="text-weight-bold">State:</span> <span class="text-grey-8 q-ml-sm"> {{selectedCustomer.state}}</span>
+          </div>
+          <div class="row">
+            <span class="text-weight-bold">City:</span> <span class="text-grey-8 q-ml-sm"> {{selectedCustomer.city}}</span>
+          </div>
+          <div class="row">
+            <span class="text-weight-bold">Joining Date:</span> <span class="text-grey-8 q-ml-sm"> {{selectedCustomer.joiningDate}}</span>
+          </div>
+          <div class="row">
+            <span class="text-weight-bold">Band:</span> <span class="text-grey-8 q-ml-sm"> {{selectedCustomer.band}}</span>
+          </div>
+          <div class="row">
+            <span class="text-weight-bold">Level:</span> <span class="text-grey-8 q-ml-sm"> {{selectedCustomer.level}}</span>
+          </div>
+        </div>
+        </div>
       </q-card>
     </q-dialog>
   </q-page>
@@ -233,9 +257,12 @@ export default defineComponent({
 
   setup() {
     return {
+      viewToggle: ref(false),
       filter: ref(""),
       customer: ref({}),
-      new_customer: ref(false),
+      newCustomer: ref(false),
+      viewCustomer: ref(false),
+      selectedCustomer: ref({}),
       mode: ref("list"),
       columns: ref([
         {
@@ -401,6 +428,21 @@ export default defineComponent({
     };
   },
   methods: {
+    openModal(val) {
+      let self = this;
+      self.selectedCustomer = val;
+      self.viewCustomer = true;
+    },
+    addCustomer() {
+      let self = this;
+      self.customer = {};
+      self.newCustomer = true;
+    },
+    editRow(val) {
+      let self = this;
+      self.customer = val;
+      self.newCustomer = true;
+    },
     exportTable() {
       // naive encoding to csv format
       const content = [this.columns.map((col) => wrapCsvValue(col.label))]

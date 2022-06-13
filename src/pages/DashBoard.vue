@@ -100,7 +100,7 @@
           <q-card class="row q-mt-md float-right full-width card-item">
             <ECharts
               class="q-pt-md"
-              :option="lineChartOptions"
+              :option="getLineChartOptions()"
               :resizable="true"
             />
           </q-card>
@@ -110,7 +110,7 @@
           >
             <ECharts
               class="q-pt-md"
-              :option="barChartOption"
+              :option="getBarChartOptions()"
               :resizable="true"
             />
           </q-card>
@@ -207,7 +207,7 @@
         >
           <ECharts
             class="q-pt-md"
-            :option="pieChartOptions"
+            :option="getPieChartOptions()"
             :resizable="true"
           />
         </q-card>
@@ -220,7 +220,7 @@
 import { defineComponent, ref } from "vue";
 import ECharts from "vue-echarts";
 import "echarts";
-// import {useQuasar} from "quasar";
+import {useQuasar} from "quasar";
 
 export default defineComponent({
   name: "DashBoard",
@@ -230,16 +230,53 @@ export default defineComponent({
   },
 
   setup() {
-    // const $q = useQuasar();
-
     return {
-      // $q,
-      barChartOption: ref({
+    }
+  },
+
+  methods: {
+    getLineChartOptions() {
+      return {
+        tooltip: {
+          trigger: "item",
+        },
+        title: {
+          left: "center",
+          text: "Total Sales",
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
+        xAxis: {
+          data: ["A", "B", "C", "D", "E", "F"],
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
+        series: [
+          {
+            data: [10, 50, 280, 130, 170, 455],
+            type: "line",
+            color: ["#FA6C0E"],
+          },
+        ],
+      }
+    },
+    getBarChartOptions() {
+      return {
         grid: {
           bottom: "25%",
         },
-        legend: {},
-        tooltip: {},
+        legend: {
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         dataset: {
           dimensions: ["product", "2019", "2020", "2021"],
           source: [
@@ -253,43 +290,30 @@ export default defineComponent({
           type: "category",
           axisLabel: {
             rotate: 45,
+            color: this.$q.dark.isActive ? "white" : "black",
           },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         // Declare several bar series, each will be mapped
         // to a column of dataset.source by default.
         series: [{ type: "bar" }, { type: "bar" }, { type: "bar" }],
-      }),
-      lineChartOptions: ref({
-        tooltip: {
-          trigger: "item",
-        },
-        title: {
-          left: "center",
-          text: "Total Sales",
-        },
-        xAxis: {
-          data: ["A", "B", "C", "D", "E", "F"],
-          // axisLabel: {
-          //   color: this.$q.dark.isActive ? "white" : "black",
-          // },
-        },
-        yAxis: {},
-        series: [
-          {
-            data: [10, 50, 280, 130, 170, 455],
-            type: "line",
-            color: ["#FA6C0E"],
-          },
-        ],
-      }),
-      pieChartOptions: ref({
+      }
+    },
+    getPieChartOptions() {
+      return {
         tooltip: {
           trigger: "item",
         },
         legend: {
           top: "5%",
           left: "center",
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
         series: [
           {
@@ -325,9 +349,9 @@ export default defineComponent({
             ],
           },
         ],
-      }),
-    };
-  },
+      }
+    }
+  }
 });
 </script>
 

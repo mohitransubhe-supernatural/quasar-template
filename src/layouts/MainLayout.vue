@@ -11,12 +11,12 @@
           round
           icon="menu"
           aria-label="Menu"
+          color="black"
           @click="toggleLeftDrawer"
-          :class="miniState ? '' : 'q-ml-sm'"
           v-if="$q.platform.is.mobile"
         />
         <q-toolbar-title class="q-ml-sm">
-          <div>
+          <div v-if="$q.platform.is.desktop">
             <q-input
               v-model="search"
               placeholder="Search"
@@ -76,7 +76,7 @@
             <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
           </q-avatar>
 
-          <q-toolbar-title>Mohit Ransubhe</q-toolbar-title>
+          <q-toolbar-title>Mohit</q-toolbar-title>
         </q-toolbar>
         <hr />
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
@@ -253,7 +253,7 @@ export default defineComponent({
 
   methods: {
     toggleLeftDrawer() {
-      this.miniState = !this.miniState;
+      this.leftDrawerOpen = !this.leftDrawerOpen;
     },
   },
 });

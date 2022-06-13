@@ -21,7 +21,7 @@
         <q-card class="row full-width card-item">
           <ECharts
             class="q-pt-md"
-            :option="smoothedLineChartOptions"
+            :option="getSmoothedLineChartOptions()"
             :resizable="true"
           />
         </q-card>
@@ -43,7 +43,7 @@
       </div>
       <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 q-mt-lg-none q-mt-md-none q-mt-sm-md q-pt-xs-md">
         <q-card class="row full-width card-item">
-          <ECharts class="q-pt-md" :option="barChartOption" :resizable="true" />
+          <ECharts class="q-pt-md" :option="getBarChartOptions()" :resizable="true" />
         </q-card>
       </div>
     </div>
@@ -65,12 +65,20 @@ export default defineComponent({
   setup() {
     return {
       value: ref(77),
-      barChartOption: ref({
+    };
+  },
+
+  methods: {
+    getBarChartOptions() {
+      return {
         grid: {
           bottom: "25%",
         },
-        legend: {},
-        tooltip: {},
+        legend: {
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         dataset: {
           dimensions: ["product", "2021", "2022"],
           source: [
@@ -84,9 +92,14 @@ export default defineComponent({
           type: "category",
           axisLabel: {
             rotate: 45,
+            color: this.$q.dark.isActive ? "white" : "black",
           },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         // Declare several bar series, each will be mapped
         // to a column of dataset.source by default.
         series: [
@@ -97,19 +110,31 @@ export default defineComponent({
             type: "bar",
           },
         ],
-      }),
-      smoothedLineChartOptions: ref({
+      }
+    },
+    getSmoothedLineChartOptions() {
+      return {
         tooltip: {
           trigger: "item",
         },
         title: {
           left: "center",
           text: "Visitors this month",
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
         xAxis: {
           data: ["2017", "2018", "2019", "2020", "2021", "2022"],
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         series: [
           {
             data: [50, 200, 50, 200, 50, 200],
@@ -124,9 +149,9 @@ export default defineComponent({
             color: ["#2e65db"],
           },
         ],
-      }),
-    };
-  },
+      }
+    }
+  }
 });
 </script>
 
