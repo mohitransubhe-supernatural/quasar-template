@@ -156,11 +156,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.custom-btn {
-  border-radius: 5px;
-  background: linear-gradient(145deg, rgb(255, 171, 103) 2%, rgb(250, 108, 14));
-  color: white;
-}
 
 .card-item {
   height: 24.5rem !important;

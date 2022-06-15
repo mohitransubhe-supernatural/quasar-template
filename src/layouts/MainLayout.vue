@@ -2,7 +2,7 @@
   <q-layout view="LHh lpR fFf">
     <q-header
       :class="$q.dark.isActive ? 'header_dark' : 'header_normal'"
-      class="text-grey-2 q-pb-md q-pt-lg"
+      class="text-grey-2 q-py-md"
     >
       <q-toolbar>
         <q-btn
@@ -12,6 +12,7 @@
           icon="menu"
           aria-label="Menu"
           color="black"
+          class="bg-grey-3 custom-border"
           @click="toggleLeftDrawer"
           v-if="$q.platform.is.mobile"
         />
@@ -69,14 +70,14 @@
     >
       <div
         :class="$q.dark.isActive ? 'drawer_dark' : 'drawer_normal'"
-        class="h-full q-px-sm"
+        class="full-height q-px-sm"
       >
-        <q-toolbar class="q-px-md q-py-lg">
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-          </q-avatar>
+        <q-toolbar class="q-px-md q-py-md">
+            <q-avatar class="q-pt-xs">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            </q-avatar>
 
-          <q-toolbar-title>Mohit</q-toolbar-title>
+            <q-toolbar-title class="q-pt-sm">Mohit</q-toolbar-title>
         </q-toolbar>
         <hr />
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
@@ -136,7 +137,7 @@
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="star" />
+              <q-icon name="manage_accounts" />
             </q-item-section>
 
             <q-item-section v-if="!miniState">
@@ -146,16 +147,16 @@
 
           <q-item
             active-class="tab-active"
-            to="/change_request"
+            to="/transactions"
             class="navigation-item"
             clickable
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="send" />
+              <q-icon name="paid" />
             </q-item-section>
 
-            <q-item-section v-if="!miniState"> Change Request </q-item-section>
+            <q-item-section v-if="!miniState"> Transactions </q-item-section>
           </q-item>
 
           <q-item
@@ -166,7 +167,7 @@
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="attach_money" />
+              <q-icon name="receipt" />
             </q-item-section>
 
             <q-item-section v-if="!miniState"> Sales Invoices </q-item-section>
@@ -174,21 +175,7 @@
 
           <q-item
             active-class="tab-active"
-            to="/quotes"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="money" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Quotes </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/transactions"
+            to="/transaction"
             class="navigation-item"
             clickable
             v-ripple
@@ -222,7 +209,7 @@
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="drafts" />
+              <q-icon name="person_pin" />
             </q-item-section>
 
             <q-item-section v-if="!miniState"> My Profile </q-item-section>

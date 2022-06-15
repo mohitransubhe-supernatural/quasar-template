@@ -2,11 +2,11 @@
   <q-page class="q-pa-md">
     <div class="row col-12 items-center">
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        <div class="text-h3 text-bold">Analytics</div>
+        <div class="text-h3 text-weight-bold">Analytics</div>
         <q-separator
           style="width: 12rem; height: 5px; background-color: #2e3d57"
         />
-        <div class="text-grey-8">Let's make some powerfull insights</div>
+        <div class="text-grey-8">Let's make some powerful insights</div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 row q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
         <div class="q-ml-lg-md q-ml-md-md">

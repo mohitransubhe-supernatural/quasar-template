@@ -8,6 +8,9 @@ const routes = [
       { path: "/statistics", component: () => import("src/pages/StatisticsPage.vue") },
       { path: "/my_profile", component: () => import("src/pages/ProfilePage.vue") },
       { path: "/customer_management", component: () => import("src/pages/CustomerManagement.vue") },
+      { path: "/transactions", component: () => import("src/pages/TransactionPage.vue") },
+      { path: "/sales_invoices", component: () => import("src/pages/InvoicePage.vue") },
+      { path: "/calender", component: () => import("pages/CalendarPage.vue") },
     ],
   },
 
