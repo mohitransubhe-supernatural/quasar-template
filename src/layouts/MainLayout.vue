@@ -53,7 +53,7 @@
         </div>
 
         <div class="q-mr-xs">
-          <q-btn no-caps flat class="bg-grey-3 custom-border">
+          <q-btn no-caps flat class="bg-grey-3 custom-border" to="/login">
             <q-icon size="xs" style="color: rgb(250, 108, 14)" name="logout" />
             <span class="text-black q-ml-sm">Log Out</span>
           </q-btn>
@@ -171,34 +171,6 @@
             </q-item-section>
 
             <q-item-section v-if="!miniState"> Sales Invoices </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/transaction"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="assignment" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Transactions </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/calendar"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="calendar_today" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Calendar </q-item-section>
           </q-item>
 
           <q-item

@@ -10,8 +10,12 @@ const routes = [
       { path: "/customer_management", component: () => import("src/pages/CustomerManagement.vue") },
       { path: "/transactions", component: () => import("src/pages/TransactionPage.vue") },
       { path: "/sales_invoices", component: () => import("src/pages/InvoicePage.vue") },
-      { path: "/calender", component: () => import("pages/CalendarPage.vue") },
     ],
+  },
+
+  {
+    path: '/login',
+    component: () => import('pages/LoginPage.vue'),
   },
 
   // Always leave this as last one,
