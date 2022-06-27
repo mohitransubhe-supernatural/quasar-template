@@ -2,9 +2,9 @@
   <q-page class="q-pa-md">
     <div class="row full-width text-h3 text-bold">Profile</div>
     <div class="row col-12 q-mt-md">
-      <div class="col-4 q-pr-md">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 q-pr-lg-md q-pr-md-md q-pr-sm-none q-pr-xs-none">
         <q-card class="q-pa-md card-item flex flex-center">
-          <div class="row q-mb-md full-width justify-center">
+          <div class="row full-width justify-center">
             <q-avatar size="150px">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
             </q-avatar>
@@ -19,12 +19,15 @@
             <div class="text-subtitle1 row justify-center full-width">
               Full Stack Developer
             </div>
+            <div class="row justify-center text-center full-width text-caption text-grey">
+              Hi! I am self-taught Web Developer here to help people by designing awesome quasar templates for their business.
+            </div>
           </div>
         </q-card>
       </div>
-      <div class="col-8">
-        <div class="row full-width q-pl-xs">
-          <q-card class="q-pa-xs">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="row full-width q-pl-lg-xs q-pl-md-xs q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
+          <q-card class="q-pa-xs full-width">
             <q-card-section>
               <q-form class="q-mb-xs">
                 <div class="row">

@@ -77,7 +77,7 @@
               <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
             </q-avatar>
 
-            <q-toolbar-title class="q-pt-sm">Mohit</q-toolbar-title>
+            <q-toolbar-title class="q-pt-sm">Mohit Ransubhe</q-toolbar-title>
         </q-toolbar>
         <hr />
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
