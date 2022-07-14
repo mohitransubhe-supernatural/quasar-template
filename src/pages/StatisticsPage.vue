@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pa-md">
     <div class="row col-12">
-      <div class="col-3 q-pr-md row">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 q-pr-lg-md q-pr-md-md row">
         <q-card class="q-pa-md row full-width justify-center card-item">
           <q-circular-progress
             :value="value"
@@ -17,18 +17,18 @@
           <div class="text-subtitle1 text-bold">Overall Visitors</div>
         </q-card>
       </div>
-      <div class="col-9">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 q-mt-lg-none q-mt-md-none q-mt-sm-md q-mt-xs-md">
         <q-card class="row full-width card-item">
           <ECharts
             class="q-pt-md"
-            :option="smoothedLineChartOptions"
+            :option="getSmoothedLineChartOptions()"
             :resizable="true"
           />
         </q-card>
       </div>
     </div>
-    <div class="row col-12 q-mt-md">
-      <div class="col-3 q-pr-md row">
+    <div class="row col-12">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 q-pr-lg-md q-pr-md-md q-mt-lg-none q-mt-md-none q-mt-sm-md q-pt-xs-md row">
         <q-card class="q-pa-md full-width card-item-2">
           <div class="text-h6 row full-width">Visitors</div>
           <div class="text-h6 row full-width">This Month</div>
@@ -41,9 +41,9 @@
           </div>
         </q-card>
       </div>
-      <div class="col-9">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 q-mt-lg-none q-mt-md-none q-mt-sm-md q-pt-xs-md">
         <q-card class="row full-width card-item">
-          <ECharts class="q-pt-md" :option="barChartOption" :resizable="true" />
+          <ECharts class="q-pt-md" :option="getBarChartOptions()" :resizable="true" />
         </q-card>
       </div>
     </div>
@@ -65,12 +65,20 @@ export default defineComponent({
   setup() {
     return {
       value: ref(77),
-      barChartOption: ref({
+    };
+  },
+
+  methods: {
+    getBarChartOptions() {
+      return {
         grid: {
           bottom: "25%",
         },
-        legend: {},
-        tooltip: {},
+        legend: {
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         dataset: {
           dimensions: ["product", "2021", "2022"],
           source: [
@@ -84,9 +92,14 @@ export default defineComponent({
           type: "category",
           axisLabel: {
             rotate: 45,
+            color: this.$q.dark.isActive ? "white" : "black",
           },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         // Declare several bar series, each will be mapped
         // to a column of dataset.source by default.
         series: [
@@ -97,19 +110,31 @@ export default defineComponent({
             type: "bar",
           },
         ],
-      }),
-      smoothedLineChartOptions: ref({
+      }
+    },
+    getSmoothedLineChartOptions() {
+      return {
         tooltip: {
           trigger: "item",
         },
         title: {
           left: "center",
           text: "Visitors this month",
+          textStyle: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
         xAxis: {
           data: ["2017", "2018", "2019", "2020", "2021", "2022"],
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: this.$q.dark.isActive ? "white" : "black",
+          },
+        },
         series: [
           {
             data: [50, 200, 50, 200, 50, 200],
@@ -124,18 +149,13 @@ export default defineComponent({
             color: ["#2e65db"],
           },
         ],
-      }),
-    };
-  },
+      }
+    }
+  }
 });
 </script>
 
 <style scoped>
-.custom-btn {
-  border-radius: 5px;
-  background: linear-gradient(145deg, rgb(255, 171, 103) 2%, rgb(250, 108, 14));
-  color: white;
-}
 
 .card-item {
   height: 24.5rem !important;

@@ -1,5 +1,10 @@
 const routes = [
   {
+    path: '/',
+    component: () => import('pages/LoginPage.vue'),
+  },
+
+  {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
@@ -8,9 +13,10 @@ const routes = [
       { path: "/statistics", component: () => import("src/pages/StatisticsPage.vue") },
       { path: "/my_profile", component: () => import("src/pages/ProfilePage.vue") },
       { path: "/customer_management", component: () => import("src/pages/CustomerManagement.vue") },
+      { path: "/transactions", component: () => import("src/pages/TransactionPage.vue") },
+      { path: "/sales_invoices", component: () => import("src/pages/InvoicePage.vue") },
     ],
   },
-
   // Always leave this as last one,
   // but you can also remove it
   {

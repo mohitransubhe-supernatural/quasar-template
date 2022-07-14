@@ -2,7 +2,7 @@
   <q-layout view="LHh lpR fFf">
     <q-header
       :class="$q.dark.isActive ? 'header_dark' : 'header_normal'"
-      class="text-gray-400 q-pb-md q-pt-lg"
+      class="text-grey-2 q-py-md"
     >
       <q-toolbar>
         <q-btn
@@ -11,22 +11,23 @@
           round
           icon="menu"
           aria-label="Menu"
+          color="black"
+          class="bg-grey-3 custom-border"
           @click="toggleLeftDrawer"
-          :class="miniState ? '' : 'q-ml-sm'"
           v-if="$q.platform.is.mobile"
         />
         <q-toolbar-title class="q-ml-sm">
-          <div>
+          <div v-if="$q.platform.is.desktop">
             <q-input
               v-model="search"
               placeholder="Search"
-              class="custom-input bg-gray-100"
+              class="custom-border bg-grey-3 q-pl-sm"
               style="width: 50%; border-radius: 10px"
               borderless
               dense
             >
               <template v-slot:append>
-                <q-icon class="q-pr-sm" color="grey" name="search" />
+                <q-icon class="q-pr-sm" color="grey-8" name="search" />
               </template>
             </q-input>
           </div>
@@ -34,7 +35,7 @@
 
         <div>
           <q-btn
-            class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
+            class="q-mr-xs bg-grey-3 q-py-xs q-px-sm custom-border"
             flat
             @click="$q.dark.toggle()"
             color="black"
@@ -44,7 +45,7 @@
 
         <div class="q-mx-sm">
           <q-btn
-            class="q-mr-xs bg-gray-100 q-py-xs q-px-sm rounded-lg"
+            class="q-mr-xs bg-grey-3 q-py-xs q-px-sm custom-border"
             flat
             color="black"
             icon="notifications"
@@ -52,7 +53,7 @@
         </div>
 
         <div class="q-mr-xs">
-          <q-btn no-caps flat class="bg-gray-100 rounded-lg">
+          <q-btn no-caps flat class="bg-grey-3 custom-border" to="/">
             <q-icon size="xs" style="color: rgb(250, 108, 14)" name="logout" />
             <span class="text-black q-ml-sm">Log Out</span>
           </q-btn>
@@ -69,14 +70,14 @@
     >
       <div
         :class="$q.dark.isActive ? 'drawer_dark' : 'drawer_normal'"
-        class="h-full q-px-sm"
+        class="full-height q-px-sm"
       >
-        <q-toolbar class="q-px-md q-py-lg">
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-          </q-avatar>
+        <q-toolbar class="q-px-md q-py-md">
+            <q-avatar class="q-pt-xs">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            </q-avatar>
 
-          <q-toolbar-title>Mohit Ransubhe</q-toolbar-title>
+            <q-toolbar-title class="q-pt-sm">Mohit Ransubhe</q-toolbar-title>
         </q-toolbar>
         <hr />
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
@@ -136,54 +137,12 @@
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="star" />
+              <q-icon name="manage_accounts" />
             </q-item-section>
 
             <q-item-section v-if="!miniState">
               Customer Management
             </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/change_request"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="send" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Change Request </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/sales_invoices"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="attach_money" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Sales Invoices </q-item-section>
-          </q-item>
-
-          <q-item
-            active-class="tab-active"
-            to="/quotes"
-            class="navigation-item"
-            clickable
-            v-ripple
-          >
-            <q-item-section avatar>
-              <q-icon name="money" />
-            </q-item-section>
-
-            <q-item-section v-if="!miniState"> Quotes </q-item-section>
           </q-item>
 
           <q-item
@@ -194,7 +153,7 @@
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="assignment" />
+              <q-icon name="paid" />
             </q-item-section>
 
             <q-item-section v-if="!miniState"> Transactions </q-item-section>
@@ -202,16 +161,16 @@
 
           <q-item
             active-class="tab-active"
-            to="/calendar"
+            to="/sales_invoices"
             class="navigation-item"
             clickable
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="calendar_today" />
+              <q-icon name="receipt" />
             </q-item-section>
 
-            <q-item-section v-if="!miniState"> Calendar </q-item-section>
+            <q-item-section v-if="!miniState"> Sales Invoices </q-item-section>
           </q-item>
 
           <q-item
@@ -222,7 +181,7 @@
             v-ripple
           >
             <q-item-section avatar>
-              <q-icon name="drafts" />
+              <q-icon name="person_pin" />
             </q-item-section>
 
             <q-item-section v-if="!miniState"> My Profile </q-item-section>
@@ -253,7 +212,7 @@ export default defineComponent({
 
   methods: {
     toggleLeftDrawer() {
-      this.miniState = !this.miniState;
+      this.leftDrawerOpen = !this.leftDrawerOpen;
     },
   },
 });
@@ -295,8 +254,7 @@ export default defineComponent({
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.custom-input input {
-  background-color: rgba(243, 244, 246);
-  border-radius: 10px;
+.custom-border {
+  border-radius: 5px;
 }
 </style>
