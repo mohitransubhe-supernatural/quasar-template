@@ -43,6 +43,25 @@
           />
         </div>
 
+        <div>
+          <q-btn
+            class="q-ml-xs bg-grey-3 q-py-xs q-px-sm custom-border"
+            flat
+          >
+            <a
+              href="https://github.com/sponsors/mohitransubhe-supernatural"
+              target="_blank"
+              title="Donate"
+              style="text-decoration: none"
+              >
+              <q-icon
+                name="favorite"
+                style="color: #eb5daa"
+              />
+              </a>
+              </q-btn>
+        </div>
+
         <div class="q-mx-sm">
           <q-btn
             class="q-mr-xs bg-grey-3 q-py-xs q-px-sm custom-border"
@@ -191,6 +210,12 @@
     </q-drawer>
 
     <q-page-container :class="$q.dark.isActive ? '' : 'bg-grey-1'">
+      <q-banner inline-actions rounded class="z-max custom-banner shadow-10 q-ma-md absolute absolute-bottom text-white">
+        Looking for beautiful premium Quasar template for Vue 3? Please drop me an email. Buy only at <b>$49</b>!
+        <template v-slot:action>
+          <q-btn type="a" href="mailto:ransubhemohit31@gmail.com" flat style="background-color: rgb(70, 177, 60)" class="text-capitalize" label="Email me"></q-btn>
+        </template>
+      </q-banner>
       <router-view />
     </q-page-container>
   </q-layout>
@@ -219,6 +244,11 @@ export default defineComponent({
 </script>
 
 <style>
+.custom-banner {
+  position: fixed;
+  background: linear-gradient(145deg, rgb(65, 66, 143) 10%, rgb(138, 149, 252));
+}
+
 .drawer_normal {
   background: #2e3d57;
   color: white;
