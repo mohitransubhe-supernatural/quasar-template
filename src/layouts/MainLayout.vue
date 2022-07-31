@@ -100,11 +100,6 @@
         </q-toolbar>
         <hr />
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
-          <!-- <q-item>
-            <q-item-section>
-              <q-item-label class="text-weight-bolder"> Menu </q-item-label>
-            </q-item-section>
-          </q-item> -->
           <q-item
             active-class="tab-active"
             to="/dashboard"

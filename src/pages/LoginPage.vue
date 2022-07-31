@@ -92,20 +92,6 @@ export default defineComponent({
   font-weight: 600;
 }
 .box {
-  /*background-color: #007733;*/
-  /*border-radius: 0px 0px 40px 40px;*/
-  /*!*backdrop-filter: blur(100px);*!*/
-  /*position: relative;*/
-  /*height: 5rem;*/
-
-  /*position: absolute;*/
-  /*height: 80px;*/
-  /*left: -80%;*/
-  /*right: -10%;*/
-  /*center: 20%;*/
-  /*border-radius: 50%;*/
-  /*top: -25px;*/
-  /*background: #007733;*/
   background: radial-gradient(200% 150px at 20% -30%, #2e3d57 -10%, transparent 120%);
   height: 4rem;
 }
