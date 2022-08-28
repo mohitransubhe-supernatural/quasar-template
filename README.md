@@ -59,7 +59,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Dashboard - Dark mode**
 <p float="left">
         <kbd>
-<img src="assets/dark_dashboard.png" border="1" alt="Dashboard - Dark mode"
+<img src="dark_dashboard.png" border="1" alt="Dashboard - Dark mode"
         title="Dashboard - Dark mode"  />
                 </kbd>
 </p>
@@ -67,7 +67,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Login**
 <p float="left">
         <kbd>
-<img src="assets/login.png" border="1" alt="Login"
+<img src="login.png" border="1" alt="Login"
         title="Login"  />
                 </kbd>
 </p>
@@ -75,7 +75,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Dashboard**
 <p float="left">
 	<kbd>
-<img src="assets/dashboard.png" border="1" alt="Dashboard"
+<img src="dashboard.png" border="1" alt="Dashboard"
 	title="Dashboard"  />
 		</kbd>
 </p>
@@ -83,7 +83,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Transaction Page**
 <p float="left">
 	<kbd>
-<img src="assets/transaction_page.png" border="1" alt="Transaction Page"
+<img src="transaction_page.png" border="1" alt="Transaction Page"
 	title="Transaction Page"  />
 		</kbd>
 </p>
@@ -91,7 +91,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Transaction Page - Dark mode**
 <p float="left">
 	<kbd>
-<img src="assets/dark_transaction_page.png" border="1" alt="Transaction Page - Dark mode"
+<img src="dark_transaction_page.png" border="1" alt="Transaction Page - Dark mode"
 	title="Transaction Page - Dark mode"  />
 		</kbd>
 </p>
@@ -99,7 +99,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Customer Management**
 <p float="left">
 	<kbd>
-<img src="assets/manage_customers.png" border="1" alt="Customer Management"
+<img src="manage_customers.png" border="1" alt="Customer Management"
 	title="Customer Management"  />
 	</kbd>
 </p>
@@ -107,7 +107,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Invoice**
 <p float="left">
 	<kbd>
-<img src="assets/invoice_page.png" border="1" alt="Invoice"
+<img src="invoice_page.png" border="1" alt="Invoice"
 	title="Invoice"  />
 	</kbd>
 </p>
@@ -115,7 +115,7 @@ Do reach out to me at "ransubhemohit31@gmail.com" for queries.
 **Profile**
 <p float="left">
 	<kbd>
-<img src="assets/profile_page.png" border="1" alt="Profile"
+<img src="profile_page.png" border="1" alt="Profile"
 	title="Profile"  />
 	</kbd>
 </p>
