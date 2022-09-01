@@ -40,7 +40,7 @@
                     class="text-weight-bolder q-px-xl full-width custom-btn"
                     label="Log in"
                     type="button"
-                    @click="$router.push('/dashboard')"
+                    @click="$router.push('/')"
                   >
                   </q-btn>
                 </div>

@@ -72,7 +72,7 @@
         </div>
 
         <div class="q-mr-xs">
-          <q-btn no-caps flat class="bg-grey-3 custom-border" to="/">
+          <q-btn no-caps flat class="bg-grey-3 custom-border" to="/login">
             <q-icon size="xs" style="color: rgb(250, 108, 14)" name="logout" />
             <span class="text-black q-ml-sm">Log Out</span>
           </q-btn>
@@ -102,7 +102,7 @@
         <q-list class="q-mt-sm q-pt-xs q-gutter-sm">
           <q-item
             active-class="tab-active"
-            to="/dashboard"
+            to="/"
             exact
             class="navigation-item"
             clickable
