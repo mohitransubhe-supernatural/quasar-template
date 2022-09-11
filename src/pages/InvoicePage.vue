@@ -34,14 +34,14 @@
               :class="(props.row.status == 'Paid') ? 'custom-green' : 'custom-red'"
               dense
               class="text-weight-bolder"
-            >{{props.row.status}}
+            >{{ props.row.status }}
             </div>
           </q-td>
         </template>
       </q-table>
     </q-card>
-        <q-dialog v-model="invoiceDialog">
-      <q-card style="width: 500px; max-width: 50vw;">
+    <q-dialog v-model="invoiceDialog" :maximized="$q.platform.is.mobile">
+      <q-card :style="$q.platform.is.desktop ? {'width': '500px', 'max-width': '50vw'} : {}">
         <q-card-section>
           <div class="text-h6">
             Add new invoice
@@ -136,15 +136,15 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import {defineComponent, ref} from "vue";
 import {exportFile} from "quasar";
 
 function wrapCsvValue(val, formatFn) {
-    let formatted = formatFn !== void 0 ? formatFn(val) : val;
-    formatted =
-        formatted === void 0 || formatted === null ? "" : String(formatted);
-    formatted = formatted.split('"').join('""');
-    return `"${formatted}"`;
+  let formatted = formatFn !== void 0 ? formatFn(val) : val;
+  formatted =
+    formatted === void 0 || formatted === null ? "" : String(formatted);
+  formatted = formatted.split('"').join('""');
+  return `"${formatted}"`;
 }
 
 export default defineComponent({
@@ -357,6 +357,6 @@ export default defineComponent({
 }
 
 .card-item:hover {
-  box-shadow: 0 0 11px rgba(53,53,53,33);
+  box-shadow: 0 0 11px rgba(53, 53, 53, 33);
 }
 </style>

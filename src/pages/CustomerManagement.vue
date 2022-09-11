@@ -96,11 +96,11 @@
         </template>
       </q-table>
     </q-card>
-    <q-dialog v-model="newCustomer">
-      <q-card style="width: 500px; max-width: 50vw">
+    <q-dialog v-model="addEditCustomer" :maximized="$q.platform.is.mobile">
+      <q-card :style="$q.platform.is.desktop ? {'width': '500px', 'max-width': '50vw'} : {}">
         <q-card-section>
           <div class="text-h6 q-px-md">
-            Add new customer
+            {{ addFlag ? 'Add customer' : 'Edit customer' }}
             <q-btn
               round
               flat
@@ -204,15 +204,15 @@
       </q-card>
     </q-dialog>
     <q-dialog v-model="viewCustomer">
-      <q-card class="q-pa-md" style="width: 600px; max-width: 60vw">
+      <q-card class="q-pa-md" :style="$q.platform.is.desktop ? {'width': '600px', 'max-width': '60vw'} : {'width': '100%'}">
         <div class="row full-width">
-          <div class="full-height self-center q-mr-md">
-            <q-avatar size="150px">
+          <div class="full-height self-center q-mr-md" :style="$q.platform.is.mobile ? {'width': '100%', 'text-align': 'center', 'margin-bottom': '20%'} : {}">
+            <q-avatar :size="$q.platform.is.desktop ? '150px' : '200px'">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
             </q-avatar>
           </div>
 
-        <q-separator vertical />
+        <q-separator :vertical="$q.platform.is.desktop" />
 
         <div class="q-ml-md q-gutter-md">
           <div class="row">
@@ -260,7 +260,8 @@ export default defineComponent({
       viewToggle: ref(false),
       filter: ref(""),
       customer: ref({}),
-      newCustomer: ref(false),
+      addEditCustomer: ref(false),
+      addFlag: ref(true),
       viewCustomer: ref(false),
       selectedCustomer: ref({}),
       mode: ref("list"),
@@ -436,12 +437,14 @@ export default defineComponent({
     addCustomer() {
       let self = this;
       self.customer = {};
-      self.newCustomer = true;
+      self.addFlag = true;
+      self.addEditCustomer = true;
     },
     editRow(val) {
       let self = this;
       self.customer = val;
-      self.newCustomer = true;
+      self.addFlag = false;
+      self.addEditCustomer = true;
     },
     exportTable() {
       // naive encoding to csv format
