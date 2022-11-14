@@ -116,7 +116,7 @@ export default defineComponent({
 
   setup() {
     return {
-      value: ref(0),
+      value: ref(90),
     };
   },
 
@@ -206,19 +206,6 @@ export default defineComponent({
         ],
       }
     }
-  },
-
-  beforeUnmount() {
-    clearInterval(this.interval);
-  },
-
-  mounted() {
-    this.interval = setInterval(() => {
-      if (this.value === 100) {
-        return (this.value = 0);
-      }
-      this.value += 10;
-    }, 1000);
   },
 });
 </script>
