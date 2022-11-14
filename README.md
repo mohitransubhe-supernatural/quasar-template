@@ -5,7 +5,7 @@
 
 # Quasar Template
 
-A free and beautiful Quasar template. This template also includes a variety of features that are required for admin
+A beautiful Quasar template. This template also includes a variety of features that are required for admin
 template needs.
 
 It is a fully responsive template built using the Quasar framework that makes it available for all screen sizes from big
