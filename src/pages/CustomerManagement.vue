@@ -442,7 +442,7 @@ export default defineComponent({
     },
     editRow(val) {
       let self = this;
-      self.customer = val;
+      self.customer = JSON.parse(JSON.stringify(val));
       self.addFlag = false;
       self.addEditCustomer = true;
     },
