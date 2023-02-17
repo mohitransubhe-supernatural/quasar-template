@@ -205,12 +205,6 @@
     </q-drawer>
 
     <q-page-container :class="$q.dark.isActive ? '' : 'bg-grey-1'">
-<!--      <q-banner inline-actions rounded class="z-max custom-banner shadow-10 q-ma-md absolute absolute-bottom text-white">-->
-<!--        Looking for beautiful premium Quasar template for Vue 3? Please drop me an email. Buy only at <b>$49</b>!-->
-<!--        <template v-slot:action>-->
-<!--          <q-btn type="a" href="mailto:ransubhemohit31@gmail.com" flat style="background-color: rgb(70, 177, 60)" class="text-capitalize" label="Email me"></q-btn>-->
-<!--        </template>-->
-<!--      </q-banner>-->
       <router-view />
     </q-page-container>
   </q-layout>
